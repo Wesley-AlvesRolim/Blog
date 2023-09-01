@@ -1,0 +1,7 @@
+a {
+  @apply text-emerald-500 hover:opacity-75 transition-all;
+}
+
+a.router-link-active {
+  @apply text-emerald-400;
+}
