@@ -7,4 +7,8 @@ export default defineNuxtConfig({
       API_URL: process.env.NUXT_API_URL,
     },
   },
+  routeRules: {
+    "/post/**": { swr: 3600 },
+    "/post": { redirect: "/" },
+  },
 });
