@@ -4,6 +4,10 @@ import { getAllPostsUseCase } from "~/data/posts";
 const data = await getAllPostsUseCase(
   "?populate=*&sort=id:desc&pagination[pageSize]=10"
 );
+
+useHead({
+  title: `Home | ${data?.posts.length} posts | Wesley Blog`,
+});
 </script>
 
 <template>

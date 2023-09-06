@@ -13,6 +13,9 @@ if (!post) {
   throw createError({ statusCode: 404, statusMessage: "Post not found" });
 }
 
+useHead({
+  title: post.title + " | Wesley Blog",
+});
 const postHtml = markdownToHtml(post.content || "");
 </script>
 
