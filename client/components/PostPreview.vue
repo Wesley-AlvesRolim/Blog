@@ -14,7 +14,7 @@ defineProps({
     <NuxtLink class="text-white hover:opacity-100" :to="`/post/${post.slug}`">
       <div class="overflow-hidden md:h-[350px]">
         <img
-          class="w-full min-h-full hover:scale-125 hover:rotate-6"
+          class="w-full min-h-full object-cover hover:scale-125 hover:rotate-6"
           :src="post.cover.data.attributes.formats.medium?.url"
           :alt="post.cover.data.attributes.alternativeText"
         />
