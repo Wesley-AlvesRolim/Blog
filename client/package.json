@@ -11,10 +11,13 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "@types/markdown-it": "^13.0.1",
     "nuxt": "^3.7.0",
     "nuxt-phosphor-icons": "^1.0.7"
   },
   "dependencies": {
+    "highlight.js": "^11.8.0",
+    "markdown-it": "^13.0.1",
     "radix-vue": "^0.1.29"
   }
 }
