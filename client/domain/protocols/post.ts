@@ -16,10 +16,23 @@ export interface PostAttributes {
   updatedAt: string;
   publishedAt: string;
   cover: Cover;
+  author?: Author;
 }
 
 export interface Cover {
   data: Data;
+}
+
+export interface Author {
+  data: {
+    id: number;
+    attributes: {
+      name: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+    };
+  };
 }
 
 export interface Data {
