@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/post/**": { swr: 3600 },
+    "/post/**": { isr: 3600 },
     "/post": { redirect: "/" },
   },
 });
