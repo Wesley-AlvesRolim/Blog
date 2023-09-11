@@ -1,4 +1,4 @@
-import { PostAttributes, Root } from "~/domain/protocols";
+import { PaginationProtocol, PostAttributes, Root } from "~/domain/protocols";
 
 export interface GetAllPostsUseCase {
   execute(): Promise<GetAllPostsReturn | null>;
@@ -6,6 +6,7 @@ export interface GetAllPostsUseCase {
 
 export interface GetAllPostsReturn {
   posts: PostAttributes[];
+  pagination?: PaginationProtocol;
 }
 
 export class GetAllPosts implements GetAllPostsUseCase {
@@ -18,10 +19,15 @@ export class GetAllPosts implements GetAllPostsUseCase {
     try {
       const {
         data: { value },
-      } = await this.httpClient(this.url);
+      }: { data: { value: Root } } = await this.httpClient(this.url);
 
       return {
         posts: this.adapter(value),
+        pagination: {
+          currentPage: value.meta.pagination.page,
+          totalPages: value.meta.pagination.pageCount,
+          totalItems: value.meta.pagination.total,
+        },
       };
     } catch (error) {
       console.error(error);
