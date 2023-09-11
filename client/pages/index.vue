@@ -2,11 +2,11 @@
 import { getAllPostsUseCase } from "~/data/posts";
 
 const data = await getAllPostsUseCase(
-  "?populate=*&sort=id:desc&pagination[pageSize]=10"
+  "?populate=*&sort=id:desc&pagination[pageSize]=6"
 );
 
 useHead({
-  title: `Home | ${data?.posts.length} posts | Wesley Blog`,
+  title: `Home | ${data?.pagination?.totalItems} posts | Wesley Blog`,
 });
 </script>
 
@@ -19,6 +19,13 @@ useHead({
         v-for="post in data.posts"
         :key="post.slug"
         :post="post"
+      />
+    </div>
+
+    <div class="flex justify-end">
+      <Pagination
+        :totalPages="data?.pagination?.totalPages"
+        :currentPage="data?.pagination?.currentPage"
       />
     </div>
   </section>
